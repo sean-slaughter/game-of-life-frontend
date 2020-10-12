@@ -7,7 +7,6 @@ export class GridContainer extends Component {
     render() {
         return (
             <div className="grid-container">
-                Game Container
                 <GameGrid gridState={this.props.gridState} rows={this.props.rows} cols={this.props.cols}/>
             </div>
         )
