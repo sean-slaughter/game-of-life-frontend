@@ -7,17 +7,22 @@ const initialState = {
 
 
 const gridReducer = (state = initialState, action) =>{
+
+    const copyGrid = (gridState) =>{
+        return JSON.parse(JSON.stringify(gridState))
+    }
+
     switch(action.type){
         case 'CLICK_CELL':
-            let copyGridState = copyGridState(state.gridState)
-            return state
+            let copyGridState = copyGrid(state.gridState)
+            copyGridState[action.row][action.col] = !copyGridState[action.row][action.col]
+            return {
+                ...state,
+                gridState: copyGridState
+            }
         default:
             return state;
     }
-}
-
-const copyGridState = (gridState) =>{
-    return JSON.parse(JSON.stringify(gridState))
 }
 
 export default gridReducer

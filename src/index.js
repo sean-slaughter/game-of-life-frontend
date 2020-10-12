@@ -7,7 +7,7 @@ import { createStore } from 'redux'
 import * as serviceWorker from './serviceWorker';
 import gridReducer from './reducers/gridReducer'
 
-const store = createStore(gridReducer)
+const store = createStore(gridReducer,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>

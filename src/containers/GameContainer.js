@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        clickCell: () => {dispatch(clickCell())}
+        clickCell: (id, row, col) => {dispatch(clickCell(id, row, col))}
     }
 }
 

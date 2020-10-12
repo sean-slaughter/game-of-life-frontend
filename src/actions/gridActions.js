@@ -1,8 +1,10 @@
 
-const clickCell = (cellId) => {
+const clickCell = (cellId, row, col) => {
     return {
         type: 'CLICK_CELL',
-        cellId
+        cellId,
+        row,
+        col
     }
 }
 

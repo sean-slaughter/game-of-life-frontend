@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class Cell extends Component {
     handleClick = () => {
-        this.props.clickCell(this.props.id)
+        this.props.clickCell(this.props.id, this.props.row, this.props.col)
     }
     
     render() {
