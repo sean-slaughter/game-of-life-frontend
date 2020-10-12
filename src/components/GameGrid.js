@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Cell from './Cell'
 export class GameGrid extends Component {
 
-  
     render() {
         let gridArr = [];
         for(let i = 0; i < this.props.rows; i++){
