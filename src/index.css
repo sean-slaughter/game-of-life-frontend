@@ -16,12 +16,14 @@ code {
 .cell {
   display: inline-block;       
   border: 1px solid black;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   margin-left: -1px;
   margin-bottom: -1px;
 }
-
+.cell:hover {
+  background-color: aqua
+}
 .dead {
   background-color: white;
 }
