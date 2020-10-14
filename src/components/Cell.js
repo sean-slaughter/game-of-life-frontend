@@ -7,7 +7,7 @@ export class Cell extends Component {
     
     render() {
         return (
-            <div className={this.props.cellState} id={this.props.id} onClick={this.handleClick}></div>
+            <div style={{width: this.props.cellSize, height: this.props.cellSize}} className={this.props.cellState} id={this.props.id} onClick={this.handleClick}></div>
         )
     }
 }

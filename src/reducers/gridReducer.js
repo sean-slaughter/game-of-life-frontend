@@ -1,8 +1,9 @@
 
 const initialState = {
-   gridState: Array(100).fill().map(() => Array(50).fill(false)),
-   rows: 100,
-   cols: 50
+   gridState: Array(50).fill().map(() => Array(70).fill(false)),
+   rows: 50,
+   cols: 70,
+   cellSize:12
 }
 
 

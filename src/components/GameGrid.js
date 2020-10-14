@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Cell from './Cell'
+import { connect } from 'react-redux'
 export class GameGrid extends Component {
 
     render() {
@@ -8,16 +9,23 @@ export class GameGrid extends Component {
            for(let j = 0; j < this.props.cols; j++){
                let cellState = this.props.gridState[i][j] ? "cell alive" : "cell dead"
                let id = i + "_" + j;  
-               gridArr.push(<Cell cellState={cellState} id={id} row={i} col={j} clickCell={this.props.clickCell}/>)
+               gridArr.push(<Cell cellState={cellState} id={id} row={i} col={j} clickCell={this.props.clickCell} cellSize={this.props.cellSize}/>)
            }
         }
         console.log(gridArr)
         return (
-            <div className="grid">
+            <div className="grid" style={{width: (this.props.cols * (this.props.cellSize + 1))}}>
                 {gridArr}
             </div>
         )
     }
 }
-
-export default GameGrid
+const mapStateToProps = state => {
+    return {
+        gridState: state.gridState,
+        rows: state.rows,
+        cols: state.cols,
+        cellSize: state.cellSize
+    }
+ }
+export default connect(mapStateToProps)(GameGrid)
