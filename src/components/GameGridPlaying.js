@@ -54,7 +54,8 @@ export class GameGridPlaying extends Component {
                 const liveNeighbors = this.getLiveNeighbors(i, j);
                 if(liveNeighbors < 2 || liveNeighbors > 3){
                     if(this.state.grid[i][j]){
-                        const copyGrid = this.copyGrid(this.state.grid)
+                        let copyGrid = this.copyGrid(this.state.grid)
+                        copyGrid[i][j] = !copyGrid[i][j]
                         this.setState({
                             grid: copyGrid
                         })
@@ -62,6 +63,7 @@ export class GameGridPlaying extends Component {
                 }
                 else if (!this.state.grid[i][j] && liveNeighbors === 3){
                     const copyGrid = this.copyGrid(this.state.grid)
+                    copyGrid[i][j] = !copyGrid[i][j]
                     this.setState({
                         grid: copyGrid
                     })
