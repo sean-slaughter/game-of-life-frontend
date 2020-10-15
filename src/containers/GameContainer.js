@@ -14,7 +14,7 @@ export class GridContainer extends Component {
             }
     }
 
-    copyinitialGrid(){
+    copyGrid(){
         return JSON.parse(JSON.stringify(this.props.initialGrid))
     }
   
@@ -23,7 +23,7 @@ export class GridContainer extends Component {
             <>
             <Grid container justify="center" alignItems="center">
             <div  className="grid-container" >
-                {this.state.running ? <GameGridPlaying grid={this.copyinitialGrid}/> : <GameGridInitial/>  }
+                {this.state.running ? <GameGridPlaying grid={this.copyGrid()} running={this.state.running}/> : <GameGridInitial/>  }
             </div>
             </Grid>        
             </>

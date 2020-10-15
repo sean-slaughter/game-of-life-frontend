@@ -5,11 +5,13 @@ import Cell from '../components/Cell'
 
 export class GameGridPlaying extends Component {
     
-    constructor(props){
-        super(props)
-        this.state = {
-            grid: this.props.grid
-        }
+    state = {
+        grid: this.props.grid,
+        running: this.props.running
+    }
+
+    copyGrid(){
+        return JSON.parse(JSON.stringify(this.props.initialGrid))
     }
 
     render() {
@@ -52,11 +54,17 @@ export class GameGridPlaying extends Component {
                 const liveNeighbors = this.getLiveNeighbors(i, j);
                 if(liveNeighbors < 2 || liveNeighbors > 3){
                     if(this.state.grid[i][j]){
-                        this.props.switchCell(i,j);
+                        const copyGrid = this.copyGrid(this.state.grid)
+                        this.setState({
+                            grid: copyGrid
+                        })
                     }
                 }
                 else if (!this.state.grid[i][j] && liveNeighbors === 3){
-                    this.props.switchCell(i,j);
+                    const copyGrid = this.copyGrid(this.state.grid)
+                    this.setState({
+                        grid: copyGrid
+                    })
                 }
             }
         }
