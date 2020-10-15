@@ -27,7 +27,7 @@ code {
 }
 
 .alive {
-  background-color: #283618
+  background-color: aqua
 }
 
 .grid {
@@ -37,5 +37,5 @@ code {
 }
 
 .grid-container{
-  margin: 150px;
+  margin: 100px;
 }

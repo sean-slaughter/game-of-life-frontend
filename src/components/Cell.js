@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import clickCell from '../actions/gridActions'
+
 
 export class Cell extends Component {
+
+
     handleClick = () => {
         this.props.clickCell(this.props.id, this.props.row, this.props.col)
     }
@@ -12,4 +17,10 @@ export class Cell extends Component {
     }
 }
 
-export default Cell
+const mapDispatchToProps = dispatch => {
+    return {
+        clickCell: (id, row, col) => {dispatch(clickCell(id, row, col))}
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Cell) 
