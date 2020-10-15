@@ -14,7 +14,7 @@ const gridReducer = (state = initialState, action) =>{
     }
 
     switch(action.type){
-        case 'CLICK_CELL':
+        case 'SWITCH_CELL':
             let copyGridState = copyGrid(state.gridState)
             copyGridState[action.row][action.col] = !copyGridState[action.row][action.col]
             return {

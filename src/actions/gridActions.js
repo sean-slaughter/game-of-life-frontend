@@ -1,11 +1,11 @@
 
-const clickCell = (cellId, row, col) => {
+const switchCell = (cellId, row, col) => {
     return {
-        type: 'CLICK_CELL',
+        type: 'SWITCH_CELL',
         cellId,
         row,
         col
     }
 }
 
-export default clickCell
+export default switchCell
