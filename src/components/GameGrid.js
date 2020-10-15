@@ -9,7 +9,7 @@ export class GameGrid extends Component {
            for(let j = 0; j < this.props.cols; j++){
                let cellState = this.props.gridState[i][j] ? "cell alive" : "cell dead"
                let id = i + "_" + j;  
-               gridArr.push(<Cell cellState={cellState} key={id} id={id} row={i} col={j} clickCell={this.props.clickCell} cellSize={this.props.cellSize}/>)
+               gridArr.push(<Cell cellState={cellState} key={id} row={i} col={j} clickCell={this.props.clickCell} cellSize={this.props.cellSize}/>)
            }
         }
         return (

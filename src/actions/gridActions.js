@@ -1,8 +1,7 @@
 
-const switchCell = (cellId, row, col) => {
+const switchCell = (row, col) => {
     return {
         type: 'SWITCH_CELL',
-        cellId,
         row,
         col
     }
