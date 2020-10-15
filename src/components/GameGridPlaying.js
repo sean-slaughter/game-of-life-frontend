@@ -7,7 +7,16 @@ export class GameGridPlaying extends Component {
     
     state = {
         grid: this.props.grid,
-        running: this.props.running
+        neighbors: [
+            [0, 1],
+            [0, -1],
+            [1, -1],
+            [-1, 1],
+            [1, 1],
+            [-1, -1],
+            [1, 0],
+            [-1, 0]
+        ]
     }
 
     copyGrid(){
@@ -30,8 +39,15 @@ export class GameGridPlaying extends Component {
         )
     }
 
+    componentDidMount(){
+        this.play();
+    }
 
-    getLiveNeighbors(i , j){
+    componentDidUpdate(){
+    
+    }
+
+    getLiveNeighbors = (i , j) =>{
         let liveNeighbors = 0;
         for(let k = 0; k < this.neighbors.length; k++){
             const i2 = i + this.neighbors[k][0];
@@ -46,9 +62,6 @@ export class GameGridPlaying extends Component {
     }
 
     play(){
-        if(!this.state.running){
-            return;
-        }
         for(let i = 0; i < this.props.rows; i++){
             for(let j = 0; j < this.props.cols; j++){
                 const liveNeighbors = this.getLiveNeighbors(i, j);
@@ -62,7 +75,7 @@ export class GameGridPlaying extends Component {
                     }
                 }
                 else if (!this.state.grid[i][j] && liveNeighbors === 3){
-                    const copyGrid = this.copyGrid(this.state.grid)
+                    let copyGrid = this.copyGrid(this.state.grid)
                     copyGrid[i][j] = !copyGrid[i][j]
                     this.setState({
                         grid: copyGrid
