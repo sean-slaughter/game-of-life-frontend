@@ -27,7 +27,7 @@ export class GameGridPlaying extends Component {
             </div>
         )
     }
-    
+
 
     getLiveNeighbors(i , j){
         let liveNeighbors = 0;
@@ -35,7 +35,7 @@ export class GameGridPlaying extends Component {
             const i2 = i + this.neighbors[k][0];
             const j2 = j + this.neighbors[k][1];
             if (i2 >= 0 && i2 < this.props.rows && j2 >=0 && j2 < this.props.cols){
-                if(this.props.initialGrid[i2][j2]){
+                if(this.state.grid[i2][j2]){
                     liveNeighbors++;
                 }
             }
@@ -51,11 +51,11 @@ export class GameGridPlaying extends Component {
             for(let j = 0; j < this.props.cols; j++){
                 const liveNeighbors = this.getLiveNeighbors(i, j);
                 if(liveNeighbors < 2 || liveNeighbors > 3){
-                    if(this.props.initialGrid[i][j]){
+                    if(this.state.grid[i][j]){
                         this.props.switchCell(i,j);
                     }
                 }
-                else if (!this.props.initialGrid[i][j] && liveNeighbors === 3){
+                else if (!this.state.grid[i][j] && liveNeighbors === 3){
                     this.props.switchCell(i,j);
                 }
             }

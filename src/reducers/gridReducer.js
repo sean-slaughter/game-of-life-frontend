@@ -15,11 +15,11 @@ const gridReducer = (state = initialState, action) =>{
 
     switch(action.type){
         case 'SWITCH_CELL':
-            let copyGridState = copyGrid(state.gridState)
+            let copyGridState = copyGrid(state.initialGrid)
             copyGridState[action.row][action.col] = !copyGridState[action.row][action.col]
             return {
                 ...state,
-                gridState: copyGridState
+                initialGrid: copyGridState
             }
         default:
             return state;
