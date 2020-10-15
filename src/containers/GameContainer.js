@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import GameGrid from '../components/GameGrid'
+import GameGridInitial from '../components/GameGridInitial'
 import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import switchCell from '../actions/gridActions'
+import GameGridPlaying from '../components/GameGridPlaying'
 
 export class GridContainer extends Component {
 
@@ -11,16 +12,10 @@ export class GridContainer extends Component {
         this.state = {
                 running: false,
             }
-        this.neighbors = [
-            [0, 1],
-            [0, -1],
-            [1, -1],
-            [-1, 1],
-            [1, 1],
-            [-1, -1],
-            [1, 0],
-            [-1, 0]
-        ]
+    }
+
+    copyinitialGrid(){
+        return JSON.parse(JSON.stringify(this.props.initialGrid))
     }
   
     render() {
@@ -28,53 +23,11 @@ export class GridContainer extends Component {
             <>
             <Grid container justify="center" alignItems="center">
             <div  className="grid-container" >
-                <GameGrid />
+                {this.state.running ? <GameGridPlaying grid={this.copyinitialGrid}/> : <GameGridInitial/>  }
             </div>
-            </Grid>
-        <button onClick={this.handleButtonClick}>{this.state.running ? "Stop" : "Play"}</button>
-        
+            </Grid>        
             </>
         )
-    }
-    
-    handleButtonClick = () => {
-        this.setState({
-            running: !this.state.running
-        }, this.play)
-    }
-
-    play(){
-        if(!this.state.running){
-            return;
-        }
-        for(let i = 0; i < this.props.rows; i++){
-            for(let j = 0; j < this.props.cols; j++){
-                const liveNeighbors = this.getLiveNeighbors(i, j);
-                if(liveNeighbors < 2 || liveNeighbors > 3){
-                    if(this.props.initialGrid[i][j]){
-                        this.props.switchCell(i,j);
-                    }
-                }
-                else if (!this.props.initialGrid[i][j] && liveNeighbors === 3){
-                    this.props.switchCell(i,j);
-                }
-            }
-        }
-        this.play.bind(this)
-    }
-
-    getLiveNeighbors(i , j){
-        let liveNeighbors = 0;
-        for(let k = 0; k < this.neighbors.length; k++){
-            const i2 = i + this.neighbors[k][0];
-            const j2 = j + this.neighbors[k][1];
-            if (i2 >= 0 && i2 < this.props.rows && j2 >=0 && j2 < this.props.cols){
-                if(this.props.initialGrid[i2][j2]){
-                    liveNeighbors++;
-                }
-            }
-        }
-        return liveNeighbors
     }
 }
 
