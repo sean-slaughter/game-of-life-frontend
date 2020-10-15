@@ -32,6 +32,7 @@ export class GridContainer extends Component {
             </div>
             </Grid>
         <button onClick={this.handleButtonClick}>{this.state.running ? "Stop" : "Play"}</button>
+        
             </>
         )
     }
@@ -48,26 +49,33 @@ export class GridContainer extends Component {
         }
         for(let i = 0; i < this.props.rows; i++){
             for(let j = 0; j < this.props.cols; j++){
-                let liveNeighbors = 0;
-                for(let k = 0; k < this.neighbors.length; k++){
-                    const i2 = i + this.neighbors[k][0];
-                    const j2 = j + this.neighbors[k][1];
-                    if (i2 >= 0 && i2 < this.props.rows && j2 >=0 && j2 < this.props.cols){
-                        if(this.props.gridState[i2][j2]){
-                            liveNeighbors++;
-                        }
+                const liveNeighbors = this.getLiveNeighbors(i, j);
+                if(liveNeighbors < 2 || liveNeighbors > 3){
+                    if(this.props.initialGrid[i][j]){
+                        this.props.switchCell(i,j);
                     }
                 }
-                if(liveNeighbors < 2 || liveNeighbors > 3){
-                    this.props.switchCell(i, j)
-                }
-                else if (!this.props.gridState[i][j] && liveNeighbors === 3){
-                    this.props.switchCell(i, j)
+                else if (!this.props.initialGrid[i][j] && liveNeighbors === 3){
+                    this.props.switchCell(i,j);
                 }
             }
         }
-        
-    } 
+        this.play.bind(this)
+    }
+
+    getLiveNeighbors(i , j){
+        let liveNeighbors = 0;
+        for(let k = 0; k < this.neighbors.length; k++){
+            const i2 = i + this.neighbors[k][0];
+            const j2 = j + this.neighbors[k][1];
+            if (i2 >= 0 && i2 < this.props.rows && j2 >=0 && j2 < this.props.cols){
+                if(this.props.initialGrid[i2][j2]){
+                    liveNeighbors++;
+                }
+            }
+        }
+        return liveNeighbors
+    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -78,12 +86,14 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
    return {
-       gridState: state.gridState,
+       initialGrid: state.initialGrid,
        rows: state.rows,
        cols: state.cols,
        cellSize: state.cellSize
    }
 }
+
+
 
 
 

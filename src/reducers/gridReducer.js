@@ -1,6 +1,6 @@
 
 const initialState = {
-   gridState: Array(40).fill().map(() => Array(60).fill(false)),
+   initialGrid: Array(40).fill().map(() => Array(60).fill(false)),
    rows: 40,
    cols: 60,
    cellSize:12
