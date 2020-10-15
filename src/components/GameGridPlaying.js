@@ -70,7 +70,6 @@ export class GameGridPlaying extends Component {
                 }
             }
         }
-        this.play.bind(this)
     }
 
 }

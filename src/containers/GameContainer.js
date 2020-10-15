@@ -23,11 +23,17 @@ export class GridContainer extends Component {
             <>
             <Grid container justify="center" alignItems="center">
             <div  className="grid-container" >
-                {this.state.running ? <GameGridPlaying grid={this.copyGrid()} running={this.state.running}/> : <GameGridInitial/>  }
+                {this.state.running ? <GameGridPlaying grid={this.copyGrid()}/> : <GameGridInitial/>  }
+                 <button onClick={this.playClick}>{this.state.running ? "Stop" : "Play"}</button>
             </div>
             </Grid>        
             </>
         )
+    }
+    playClick = () =>{
+        this.setState({
+            running: !this.state.running
+        })
     }
 }
 
