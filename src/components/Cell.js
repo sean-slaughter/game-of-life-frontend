@@ -7,6 +7,7 @@ export class Cell extends Component {
 
 
     handleClick = () => {
+        console.log(this.props.id)
         this.props.clickCell(this.props.id, this.props.row, this.props.col)
     }
     

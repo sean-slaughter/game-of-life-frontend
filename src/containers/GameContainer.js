@@ -3,6 +3,13 @@ import GameGrid from '../components/GameGrid'
 import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 export class GridContainer extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+                running: false,
+            }
+    }
   
     render() {
         return (
@@ -12,10 +19,22 @@ export class GridContainer extends Component {
                 <GameGrid />
             </div>
             </Grid>
-            <button>Play</button>
+        <button onClick={this.handleButtonClick}>{this.state.running ? "Stop" : "Play"}</button>
             </>
         )
     }
+    
+    handleButtonClick = () => {
+        this.setState({
+            running: !this.state.running
+        }, this.play)
+    }
+
+    play(){
+        if(this.state.running){
+            console.log(this.props.gridState)
+        }
+    } 
 }
 
 const mapStateToProps = state => {
