@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Logo from './components/Logo';
-import GameContainer from './containers/GameContainer'
+import GameContainer from './containers/GameContainer';
+import Logo from './components/Logo'
 
 
 function App() {
