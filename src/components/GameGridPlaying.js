@@ -65,19 +65,16 @@ export class GameGridPlaying extends Component {
     }
 
     play(){
-        console.log("play method triggered")
         let copyGrid = this.copyGrid(this.grid)
         for(let i = 0; i < this.props.rows; i++){
             for(let j = 0; j < this.props.cols; j++){
                 const liveNeighbors = this.getLiveNeighbors(i, j);
                 if(liveNeighbors < 2 || liveNeighbors > 3){
                     if(this.grid[i][j]){
-                        console.log(`[${i}, ${j}] died from under/overpopulation`)
                         copyGrid[i][j] = !copyGrid[i][j]
                     }
                 }
                 else if (!this.grid[i][j] && liveNeighbors === 3){
-                    console.log(`[${i}, ${j}] came back to life`)
                     copyGrid[i][j] = !copyGrid[i][j]
                 }
             }
