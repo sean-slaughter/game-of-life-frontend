@@ -17,6 +17,10 @@ export class GridContainer extends Component {
     copyGrid(){
         return JSON.parse(JSON.stringify(this.props.initialGrid))
     }
+
+    seedRandom(){
+        
+    }
   
     render() {
         return (

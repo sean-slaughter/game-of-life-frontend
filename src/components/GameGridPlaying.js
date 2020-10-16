@@ -5,9 +5,10 @@ import Cell from '../components/Cell'
 
 export class GameGridPlaying extends Component {
     
-    state = {
-        grid: this.props.grid,
-        neighbors: [
+    constructor(props){
+        super(props)
+        this.grid = props.grid
+        this.neighbors = [
             [0, 1],
             [0, -1],
             [1, -1],
@@ -19,15 +20,17 @@ export class GameGridPlaying extends Component {
         ]
     }
 
+
     copyGrid(){
-        return JSON.parse(JSON.stringify(this.props.initialGrid))
+        return JSON.parse(JSON.stringify(this.grid))
     }
 
     render() {
+        console.log("render")
         let gridArr = [];
         for(let i = 0; i < this.props.rows; i++){
            for(let j = 0; j < this.props.cols; j++){
-               let cellState = this.state.grid[i][j] ? "cell alive" : "cell dead"
+               let cellState = this.grid[i][j] ? "cell alive" : "cell dead"
                let id = i + "_" + j;  
                gridArr.push(<Cell cellState={cellState} key={id} row={i} col={j} cellSize={this.props.cellSize}/>)
            }
@@ -40,11 +43,11 @@ export class GameGridPlaying extends Component {
     }
 
     componentDidMount(){
-        this.play();
+       this.interval = setInterval(this.play.bind(this), 50)
     }
 
-    componentDidUpdate(){
-    
+    componentWillUnmount(){
+        clearInterval(this.interval)
     }
 
     getLiveNeighbors = (i , j) =>{
@@ -53,7 +56,7 @@ export class GameGridPlaying extends Component {
             const i2 = i + this.neighbors[k][0];
             const j2 = j + this.neighbors[k][1];
             if (i2 >= 0 && i2 < this.props.rows && j2 >=0 && j2 < this.props.cols){
-                if(this.state.grid[i2][j2]){
+                if(this.grid[i2][j2]){
                     liveNeighbors++;
                 }
             }
@@ -62,28 +65,27 @@ export class GameGridPlaying extends Component {
     }
 
     play(){
+        console.log("play method triggered")
+        let copyGrid = this.copyGrid(this.grid)
         for(let i = 0; i < this.props.rows; i++){
             for(let j = 0; j < this.props.cols; j++){
                 const liveNeighbors = this.getLiveNeighbors(i, j);
                 if(liveNeighbors < 2 || liveNeighbors > 3){
-                    if(this.state.grid[i][j]){
-                        let copyGrid = this.copyGrid(this.state.grid)
+                    if(this.grid[i][j]){
+                        console.log(`[${i}, ${j}] died from under/overpopulation`)
                         copyGrid[i][j] = !copyGrid[i][j]
-                        this.setState({
-                            grid: copyGrid
-                        })
                     }
                 }
-                else if (!this.state.grid[i][j] && liveNeighbors === 3){
-                    let copyGrid = this.copyGrid(this.state.grid)
+                else if (!this.grid[i][j] && liveNeighbors === 3){
+                    console.log(`[${i}, ${j}] came back to life`)
                     copyGrid[i][j] = !copyGrid[i][j]
-                    this.setState({
-                        grid: copyGrid
-                    })
                 }
             }
         }
+        this.grid = copyGrid;
+        this.forceUpdate();
     }
+
 
 }
 const mapStateToProps = state => {

@@ -1,8 +1,8 @@
 
 const initialState = {
-   initialGrid: Array(40).fill().map(() => Array(60).fill(false)),
-   rows: 40,
-   cols: 60,
+   initialGrid: Array(50).fill().map(() => Array(70).fill(false)),
+   rows: 50,
+   cols: 70,
    cellSize:12
 }
 
