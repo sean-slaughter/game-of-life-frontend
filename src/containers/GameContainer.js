@@ -29,7 +29,7 @@ export class GridContainer extends Component {
           </Button>
           <Button color="primary" size="large" variant="outlined">
             {" "}
-            Games{" "}
+            Saved Games{" "}
           </Button>
           <Button
             color="primary"
