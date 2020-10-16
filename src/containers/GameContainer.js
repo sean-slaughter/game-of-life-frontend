@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import GameGridInitial from '../components/GameGridInitial'
 import { connect } from 'react-redux'
-import Grid from '@material-ui/core/Grid'
+import {Grid, Button} from '@material-ui/core/'
 import switchCell from '../actions/gridActions'
 import GameGridPlaying from '../components/GameGridPlaying'
+import { cyan } from '@material-ui/core/colors';
+
 
 export class GridContainer extends Component {
 
@@ -28,7 +30,7 @@ export class GridContainer extends Component {
             <Grid container justify="center" alignItems="center">
             <div  className="grid-container" >
                 {this.state.running ? <GameGridPlaying grid={this.copyGrid()}/> : <GameGridInitial/>  }
-                 <button onClick={this.playClick}>{this.state.running ? "Stop" : "Play"}</button>
+                 <Button size="large" variant="outlined" color="primary" onClick={this.playClick}>{this.state.running ? "Stop" : "Play"}</Button>
             </div>
             </Grid>        
             </>
