@@ -15,7 +15,8 @@ code {
 }
 
 .logo {
-  max-width: 500px;
+  max-width: 650px;
+  margin-top: 15px;
 }
 
 .cell {
@@ -47,4 +48,6 @@ code {
 
 button {
   margin-top: 20px !important;
+  margin-left: 30px !important;
+  margin-right: 30px !important;
 }

@@ -31,6 +31,18 @@ export class GridContainer extends Component {
             {" "}
             Games{" "}
           </Button>
+          <Button
+            color="primary"
+            size="large"
+            variant="outlined"
+            onClick={this.playClick}
+          >
+            {this.state.running ? "Stop" : "Play"}
+          </Button>
+          <Button color="primary" size="large" variant="outlined">
+            {" "}
+            SAVE
+          </Button>
         </Grid>
 
         <Grid container justify="center" alignItems="center">
@@ -40,14 +52,6 @@ export class GridContainer extends Component {
             ) : (
               <GameGridInitial />
             )}
-            <Button
-              color="primary"
-              size="large"
-              variant="outlined"
-              onClick={this.playClick}
-            >
-              {this.state.running ? "Stop" : "Play"}
-            </Button>
           </div>
         </Grid>
       </>
