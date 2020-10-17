@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-function SaveForm() {
+function SaveForm(props) {
     const [open, setOpen] = useState(false);
     const [gridName, setGridName] = useState("");
     const [name, setName] = useState("");
 
     const handleClose = () => {
       setOpen(false);
+      props.history.push('/home')
     };
   
     useEffect(() => {
