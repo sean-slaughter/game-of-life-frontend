@@ -86,10 +86,4 @@ const mapStateToProps = state =>{
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return{
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SaveForm)
+export default connect(mapStateToProps, { saveGame })(SaveForm)
