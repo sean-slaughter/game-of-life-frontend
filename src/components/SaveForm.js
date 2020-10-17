@@ -50,6 +50,7 @@ function SaveForm() {
               fullWidth
               onChange={handleGridChange}
               value={gridName}
+              required={true}
             />
             <TextField
               autoFocus
@@ -60,6 +61,7 @@ function SaveForm() {
               fullWidth
               onChange={handleNameChange}
               value={name}
+              required={true}
             />
           </DialogContent>
           <DialogActions>
