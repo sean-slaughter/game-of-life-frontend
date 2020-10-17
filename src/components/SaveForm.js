@@ -97,9 +97,9 @@ function SaveForm(props) {
 const mapStateToProps = state =>{
     return{
         initialGrid: state.initialGrid,
-        cols: state.cols,
-        rows: state.rows,
-        cellSize: state.cellSize
+        cols: state.settings.cols,
+        rows: state.settings.rows,
+        cellSize: state.settings.cellSize
 
     }
 }

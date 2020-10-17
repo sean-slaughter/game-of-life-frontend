@@ -87,10 +87,10 @@ export class GameGridPlaying extends Component {
 }
 const mapStateToProps = state => {
     return {
-        rows: state.rows,
-        cols: state.cols,
-        cellSize: state.cellSize,
-        speed: state.speed
+        rows: state.settings.rows,
+        cols: state.settings.cols,
+        cellSize: state.settings.cellSize,
+        speed: state.settings.speed
     }
  }
 
