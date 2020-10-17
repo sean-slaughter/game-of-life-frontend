@@ -6,6 +6,7 @@ import About from "./components/About";
 import { Route } from "react-router-dom";
 import Home from "./components/Home";
 import SaveForm from "./components/SaveForm";
+import Settings from "./components/Settings";
 
 function App() {
   const theme = createMuiTheme({
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/games/new" component={SaveForm}/>
+            <Route path="/settings" component={Settings}/>
         </MuiThemeProvider>
       </div>
     </>
