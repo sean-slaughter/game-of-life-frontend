@@ -80,7 +80,7 @@ function SaveForm() {
 
 const mapStateToProps = state =>{
     return{
-        
+        initialGrid: state.initialGrid
     }
 }
 
