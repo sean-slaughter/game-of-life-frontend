@@ -80,7 +80,7 @@ export default function About() {
       </DialogContent>
       <DialogActions>
         <Link to="/">
-            <Button color="primary" variant="contained" onClick={handleClose}>
+            <Button color="primary" onClick={handleClose}>
               Close
             </Button>
         </Link>
