@@ -29,13 +29,13 @@ export default function About() {
       open={open}
     >
       <DialogTitle id="simple-dialog-title" onClose={handleClose}>
-        About Conways Game of Life
+        About the "Game of Life"
       </DialogTitle>
       <DialogContent dividers>
         <Typography gutterBottom>
           The Game of Life is a cellular automaton, invented by mathematician
           John Conway (who passed away in April 2020 due to COVID-19
-          complications). The "game" consists of a grid of cells which,based on
+          complications). The "game" consists of a grid of cells, which based on
           a simple set of rules can either live, die, or reproduce.
           <br />
           <br />
@@ -75,7 +75,7 @@ export default function About() {
         </Typography>
         <Typography gutterBottom>
           Click on cells on the grid to make patterns and then press 'Play' to
-          begin the simulation!
+          begin the simulation! If you like what you create, feel free to name it and save it!
         </Typography>
         <Link to="/">
           <Grid container justify="center">
