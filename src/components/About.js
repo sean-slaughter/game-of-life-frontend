@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
-import { Button, Grid, Typography } from "@material-ui/core";
+import { Button, DialogActions, Grid, Typography } from "@material-ui/core";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -77,14 +77,14 @@ export default function About() {
           Click on cells on the grid to make patterns and then press 'Play' to
           begin the simulation! If you like what you create, feel free to name it and save it!
         </Typography>
+      </DialogContent>
+      <DialogActions>
         <Link to="/">
-          <Grid container justify="center">
-            <Button color="primary" variant="contained" onClick={handleClose}>
+            <Button color="primary"  onClick={handleClose}>
               Close
             </Button>
-          </Grid>
         </Link>
-      </DialogContent>
+      </DialogActions>
     </Dialog>
   );
 }
