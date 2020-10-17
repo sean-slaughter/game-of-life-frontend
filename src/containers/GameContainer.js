@@ -6,7 +6,6 @@ import switchCell from "../actions/gridActions";
 import GameGridPlaying from "../components/GameGridPlaying";
 import { Link, Route } from "react-router-dom";
 
-
 export class GridContainer extends Component {
   constructor(props) {
     super(props);
@@ -24,15 +23,15 @@ export class GridContainer extends Component {
   render() {
     return (
       <>
-        <Grid>
+        <Grid container justify="center" alignItems="center">
           <Link to="/about">
-            <Button  color="primary" size="large" variant="outlined">
-             About
+            <Button color="primary" size="large" variant="outlined">
+              About
             </Button>
           </Link>
           <Link to="/games">
-            <Button  color="primary" size="large" variant="outlined">
-             Saved Games
+            <Button color="primary" size="large" variant="outlined">
+              Saved Games
             </Button>
           </Link>
           <Button
@@ -43,9 +42,11 @@ export class GridContainer extends Component {
           >
             {this.state.running ? "Stop" : "Play"}
           </Button>
-          <Button color="primary" size="large" variant="outlined">
-            SAVE
-          </Button>
+          <Link to="/games/new">
+            <Button color="primary" size="large" variant="outlined">
+              SAVE
+            </Button>
+          </Link>
         </Grid>
 
         <Grid container justify="center" alignItems="center">

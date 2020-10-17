@@ -7,6 +7,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
 import About from "./components/About";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
+import SaveForm from "./components/SaveForm";
 
 function App() {
   const theme = createMuiTheme({
@@ -21,6 +22,7 @@ function App() {
         <MuiThemeProvider theme={theme}>
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />
+            <Route path="/games/new" component={SaveForm}/>
         </MuiThemeProvider>
       </div>
     </>

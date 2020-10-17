@@ -66,7 +66,7 @@ export default function About() {
             <img className="about" src={live_son} />
           </Grid>
           <br />
-          4. Any dead cell with three live neighbors becomes alive.
+          4. Any dead cell with three live neighbors becomes alive, as if by reproduction.
           <br />
           <Grid container justify="center">
             <img className="about" src={reproduce} />
