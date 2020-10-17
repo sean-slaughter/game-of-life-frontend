@@ -6,18 +6,16 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 
-const D
-
 
 export class About extends Component {
     
     state = {
         open: false
     }
-
-    handleClose(){
+    
+    componentDidMount(){
         this.setState({
-            open: !this.state.open
+            open: true
         })
     }
 

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Grid, Button } from "@material-ui/core/";
 import switchCell from "../actions/gridActions";
 import GameGridPlaying from "../components/GameGridPlaying";
+import { Link } from "react-router-dom";
 
 export class GridContainer extends Component {
   constructor(props) {
@@ -23,12 +24,16 @@ export class GridContainer extends Component {
     return (
       <>
         <Grid>
-          <Button color="primary" size="large" variant="outlined">
-            About
-          </Button>
-          <Button color="primary" size="large" variant="outlined">
-            Saved Games
-          </Button>
+          <Link to="/about" style={{textDecoration: 'none'}}>
+            <Button  color="primary" size="large" variant="outlined">
+             About
+            </Button>
+          </Link>
+          <Link to="/games" style={{textDecoration: 'none'}}>
+            <Button  color="primary" size="large" variant="outlined">
+             Saved Games
+            </Button>
+          </Link>
           <Button
             color="primary"
             size="large"
