@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import switchCell from '../actions/gridActions'
+import { switchCell } from '../actions/gridActions'
 
 
 export class Cell extends Component {
