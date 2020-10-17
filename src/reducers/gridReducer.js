@@ -3,10 +3,12 @@ const initialState = {
   initialGrid: Array(50)
     .fill()
     .map(() => Array(70).fill(false)),
-  rows: 50,
-  cols: 70,
-  cellSize: 12,
-  speed: 100
+  settings: {
+    rows: 50,
+    cols: 70,
+    cellSize: 12,
+    speed: 100
+  }
 };
 
 const gridReducer = (state = initialState, action) => {
