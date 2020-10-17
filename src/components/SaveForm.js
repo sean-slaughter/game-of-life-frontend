@@ -2,6 +2,7 @@ import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, T
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 function SaveForm() {
     const [open, setOpen] = useState(false);
@@ -14,10 +15,10 @@ function SaveForm() {
   
     useEffect(() => {
       setOpen(true);
-    });
+    },[]);
 
     const handleSubmit = () =>{
-
+        console.log(gridName, name)
     }
 
     const handleGridChange = (e) =>{
@@ -45,23 +46,21 @@ function SaveForm() {
               autoFocus
               margin="dense"
               id="gridName"
-              label="Name your grid:"
+              label="Name your grid"
               type="text"
               fullWidth
               onChange={handleGridChange}
               value={gridName}
-              required={true}
             />
             <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Your name:"
+              label="Your name"
               type="text"
               fullWidth
               onChange={handleNameChange}
               value={name}
-              required={true}
             />
           </DialogContent>
           <DialogActions>
@@ -77,6 +76,18 @@ function SaveForm() {
         </Dialog>
       </div>
     );
+}
+
+const mapStateToProps = state =>{
+    return{
+        
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return{
+
+    }
 }
 
 export default SaveForm

@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import { Button, DialogActions, Grid, Typography } from "@material-ui/core";
-import { useState } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import underpopulation from "../underpopulation.png";
 import overpopulation from "../overpopulation.png";
@@ -20,7 +18,7 @@ export default function About() {
 
   useEffect(() => {
     setOpen(true);
-  });
+  },[]);
 
   return (
     <Dialog
@@ -49,27 +47,27 @@ export default function About() {
           underpopulation.
           <br />
           <Grid container justify="center">
-            <img className="about" src={underpopulation} />
+            <img alt="example" className="about" src={underpopulation} />
           </Grid>
           <br />
           2. Any cell with more than three live neighbors dies, as if by over
           population.
           <br />
           <Grid container justify="center">
-            <img className="about" src={overpopulation} />
+            <img alt="example" className="about" src={overpopulation} />
           </Grid>
           <br />
           3. Any cell with either two or three live neighbors lives on to the
           next generation.
           <br />
           <Grid container justify="center">
-            <img className="about" src={live_son} />
+            <img alt="example" className="about" src={live_son} />
           </Grid>
           <br />
           4. Any dead cell with three live neighbors becomes alive, as if by reproduction.
           <br />
           <Grid container justify="center">
-            <img className="about" src={reproduce} />
+            <img alt="example" className="about" src={reproduce} />
           </Grid>
           <br />
         </Typography>
