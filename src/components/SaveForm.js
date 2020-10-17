@@ -20,7 +20,12 @@ function SaveForm(props) {
     },[]);
 
     const handleSubmit = () =>{
-        console.log(gridName, name)
+        const game = {
+            name,
+            gridName,
+            grid: props.initalGrid
+        }
+        props.saveGame(game)
     }
 
     const handleGridChange = (e) =>{
