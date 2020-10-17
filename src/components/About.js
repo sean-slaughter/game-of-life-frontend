@@ -5,44 +5,85 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
+import { Button, Slide } from '@material-ui/core';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
-export class About extends Component {
-    
-    state = {
-        open: false
-    }
-    
-    componentDidMount(){
-        this.setState({
-            open: true
-        })
+export default function About(){
+    const [open, setOpen] = useState(false)
+
+    const handleClose = () =>{
+        setOpen(false)
     }
 
-    render() {
-        const { open } = this.state
+    useEffect(() => {
+        setOpen(true)
+    })
 
-        return (
-            <Dialog onClose={this.handleClose} open={open}>
-                <DialogTitle id="simple-dialog-title">
-                    About Conways Game of Life
-                    <DialogContent>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                        Laudantium ea vel excepturi, atque iusto reiciendis soluta alias. 
-                        Nemo obcaecati eos ullam beatae, nihil, earum totam numquam autem excepturi, 
-                        alias inventore?
+    return(
+        <Dialog onClose={handleClose} open={open}>
+        <DialogTitle id="simple-dialog-title" onClose={handleClose}>
+            About Conways Game of Life
+            <DialogContent>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                Laudantium ea vel excepturi, atque iusto reiciendis soluta alias. 
+                Nemo obcaecati eos ullam beatae, nihil, earum totam numquam autem excepturi, 
+                alias inventore?
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sequi aliquam sapiente quia, incidunt consequatur dolor a 
-                        consectetur voluptates? Sapiente architecto dolorum molestiae vel 
-                        commodi provident veniam, esse autem eligendi velit.
-                    </DialogContent>
-                </DialogTitle>
-
-            </Dialog>
-           
-        )
-    }
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sequi aliquam sapiente quia, incidunt consequatur dolor a 
+                consectetur voluptates? Sapiente architecto dolorum molestiae vel 
+                commodi provident veniam, esse autem eligendi velit.
+            </DialogContent>
+        </DialogTitle>
+        <Button color="primary" variant="contained"onClick={handleClose}>Close</Button>
+    </Dialog>
+    )
 }
+    
+//     state = {
+//         open: false,
+//     }
+    
+//     componentDidMount(){
+//         this.setState({
+//             open: true,
+//         })
+//     }
 
-export default About
+//     handleClose(){
+//         this.setState({
+//             open: false
+//         })
+//     }
+    
+//     render() {
+//         const { open } = this.state;
+       
+
+//         return (
+           
+//             <Dialog onClose={this.handleClose.bind(this)} open={open}>
+//                 <DialogTitle id="simple-dialog-title">
+//                     About Conways Game of Life
+//                     <DialogContent>
+//                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+//                         Laudantium ea vel excepturi, atque iusto reiciendis soluta alias. 
+//                         Nemo obcaecati eos ullam beatae, nihil, earum totam numquam autem excepturi, 
+//                         alias inventore?
+
+//                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//                         Sequi aliquam sapiente quia, incidunt consequatur dolor a 
+//                         consectetur voluptates? Sapiente architecto dolorum molestiae vel 
+//                         commodi provident veniam, esse autem eligendi velit.
+//                     </DialogContent>
+//                 </DialogTitle>
+//                 <Button color="primary" variant="contained"onClick={this.handleClose.bind(this)}>Close</Button>
+//             </Dialog>
+            
+//         )
+//     }
+// }
+
+// export default About

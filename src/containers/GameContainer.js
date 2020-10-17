@@ -24,12 +24,12 @@ export class GridContainer extends Component {
     return (
       <>
         <Grid>
-          <Link to="/about" style={{textDecoration: 'none'}}>
+          <Link to="/about">
             <Button  color="primary" size="large" variant="outlined">
              About
             </Button>
           </Link>
-          <Link to="/games" style={{textDecoration: 'none'}}>
+          <Link to="/games">
             <Button  color="primary" size="large" variant="outlined">
              Saved Games
             </Button>
