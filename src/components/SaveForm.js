@@ -1,6 +1,7 @@
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button } from '@material-ui/core';
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 function SaveForm() {
     const [open, setOpen] = useState(false);
@@ -17,7 +18,6 @@ function SaveForm() {
 
     }
 
-
     return (
       <div>
         <Dialog
@@ -25,11 +25,11 @@ function SaveForm() {
           aria-labelledby="customized-dialog-title"
           open={open}
         >
-          <DialogTitle>Save your grid state.</DialogTitle>
+          <DialogTitle>Save your game.</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Like the inital grid state you've created? Save it for others to
-              see.
+              see, or come back to it later.
             </DialogContentText>
             <TextField
               autoFocus
@@ -52,9 +52,11 @@ function SaveForm() {
           <Button onClick={handleSave} color="primary">
             Save
           </Button>
+          <Link to="/home">
           <Button onClick={handleClose} color="primary">
             Back
           </Button>
+          </Link>
           </DialogActions>
         </Dialog>
       </div>
