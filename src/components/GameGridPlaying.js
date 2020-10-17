@@ -33,7 +33,7 @@ export class GameGridPlaying extends Component {
     }
 
     componentDidMount(){
-       this.interval = setInterval(this.play.bind(this), 75)
+       this.interval = setInterval(this.play.bind(this), this.props.speed)
     }
 
     componentWillUnmount(){
@@ -89,7 +89,8 @@ const mapStateToProps = state => {
     return {
         rows: state.rows,
         cols: state.cols,
-        cellSize: state.cellSize
+        cellSize: state.cellSize,
+        speed: state.speed
     }
  }
 
