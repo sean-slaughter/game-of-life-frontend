@@ -6,6 +6,7 @@ const initialState = {
   rows: 50,
   cols: 70,
   cellSize: 12,
+  speed: 100
 };
 
 const gridReducer = (state = initialState, action) => {
