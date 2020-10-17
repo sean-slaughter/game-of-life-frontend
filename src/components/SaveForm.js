@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
+import { saveGame } from '../actions/gameActions'
 
 function SaveForm(props) {
     const [open, setOpen] = useState(false);

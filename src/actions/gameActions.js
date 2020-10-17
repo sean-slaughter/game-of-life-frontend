@@ -8,8 +8,14 @@ export const switchCell = (row, col) => {
 }
 
 export const saveGame = (game) => {
-    return {
-        type: "SAVE_GAME",
-        game
+    return (dispatch) => {
+        fetch('backend_url', {
+            header: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(game)
+        })
+        
     }
 }
