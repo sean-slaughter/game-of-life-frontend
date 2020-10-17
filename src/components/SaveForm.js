@@ -90,4 +90,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default SaveForm
+export default connect(mapStateToProps, mapDispatchToProps)(SaveForm)
