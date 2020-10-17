@@ -5,7 +5,8 @@ import Logo from "./components/Logo";
 import cyan from "@material-ui/core/colors/cyan";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
 import About from "./components/About";
-import { Route } from 'react-router-dom'
+import { Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   const theme = createMuiTheme({
@@ -16,13 +17,12 @@ function App() {
 
   return (
     <>
-    <div className="App">
-      <MuiThemeProvider theme={theme}>
-        <Logo />
-        <GameContainer />
-      </MuiThemeProvider>
-    </div>
-    <Route path='/about' component={About}/>
+      <div className="App">
+        <MuiThemeProvider theme={theme}>
+            <Route path="/" component={Home} />
+            <Route path="/about" component={About} />
+        </MuiThemeProvider>
+      </div>
     </>
   );
 }
