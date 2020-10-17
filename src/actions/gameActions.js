@@ -7,15 +7,18 @@ export const switchCell = (row, col) => {
     }
 }
 
-export const saveGame = (game) => {
+export const saveGame = (game, history) => {
     return (dispatch) => {
-        fetch('backend_url', {
-            header: {
-                'Content-Type': 'application/json'
-            },
+        fetch('http://localhost:3001/games', {
             method: 'POST',
-            body: JSON.stringify(game)
-        })
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(game)
+    })
+        .then(resp => resp.json())
+        .then(game => console.log(game))
         
     }
 }

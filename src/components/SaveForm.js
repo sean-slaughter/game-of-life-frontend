@@ -23,7 +23,7 @@ function SaveForm(props) {
         const game = {
             name,
             gridName,
-            grid: props.initalGrid
+            grid: copyGrid(props.initialGrid)
         }
         props.saveGame(game)
     }
@@ -36,6 +36,10 @@ function SaveForm(props) {
         setName(e.target.value)
     }
 
+    const copyGrid = (grid) => {
+      return JSON.parse(JSON.stringify(grid))
+    }
+ 
     return (
       <div>
         <Dialog
