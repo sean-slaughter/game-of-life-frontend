@@ -43,7 +43,7 @@ export class GameGridPlaying extends Component {
     }
 
     componentDidMount(){
-       this.interval = setInterval(this.play.bind(this), 50)
+       this.interval = setInterval(this.play.bind(this), 75)
     }
 
     componentWillUnmount(){

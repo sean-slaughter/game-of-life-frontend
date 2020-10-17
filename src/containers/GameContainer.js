@@ -24,12 +24,10 @@ export class GridContainer extends Component {
       <>
         <Grid>
           <Button color="primary" size="large" variant="outlined">
-            {" "}
-            About{" "}
+            About
           </Button>
           <Button color="primary" size="large" variant="outlined">
-            {" "}
-            Saved Games{" "}
+            Saved Games
           </Button>
           <Button
             color="primary"
@@ -40,7 +38,6 @@ export class GridContainer extends Component {
             {this.state.running ? "Stop" : "Play"}
           </Button>
           <Button color="primary" size="large" variant="outlined">
-            {" "}
             SAVE
           </Button>
         </Grid>
