@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 function SaveForm() {
     const [open, setOpen] = useState(false);
+    const [gridName, setGridName] = useState("");
+    const [name, setName] = useState("");
 
     const handleClose = () => {
       setOpen(false);
@@ -14,8 +16,16 @@ function SaveForm() {
       setOpen(true);
     });
 
-    const handleSave = () =>{
+    const handleSubmit = () =>{
 
+    }
+
+    const handleGridChange = (e) =>{
+        setGridName(e.target.value)
+    }
+
+    const handleNameChange = (e) =>{
+        setName(e.target.value)
     }
 
     return (
@@ -38,6 +48,8 @@ function SaveForm() {
               label="Name your grid:"
               type="text"
               fullWidth
+              onChange={handleGridChange}
+              value={gridName}
             />
             <TextField
               autoFocus
@@ -46,10 +58,12 @@ function SaveForm() {
               label="Your name:"
               type="text"
               fullWidth
+              onChange={handleNameChange}
+              value={name}
             />
           </DialogContent>
           <DialogActions>
-          <Button onClick={handleSave} color="primary">
+          <Button onClick={handleSubmit} color="primary">
             Save
           </Button>
           <Link to="/home">
