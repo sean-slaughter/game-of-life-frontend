@@ -21,9 +21,14 @@ function SaveForm(props) {
 
     const handleSubmit = () =>{
         const game = {
-            name,
-            gridName,
-            grid: copyGrid(props.initialGrid)
+          game:{
+              user: name,
+              name: gridName,
+              rows: props.rows,
+              cols: props.cols,
+              cell_size: props.cellSize,
+              grid: copyGrid(props.initialGrid)
+          } 
         }
         props.saveGame(game)
     }
@@ -91,7 +96,11 @@ function SaveForm(props) {
 
 const mapStateToProps = state =>{
     return{
-        initialGrid: state.initialGrid
+        initialGrid: state.initialGrid,
+        cols: state.cols,
+        rows: state.rows,
+        cellSize: state.cellSize
+
     }
 }
 
