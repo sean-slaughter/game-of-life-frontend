@@ -1,5 +1,5 @@
 
-const switchCell = (row, col) => {
+export const switchCell = (row, col) => {
     return {
         type: 'SWITCH_CELL',
         row,
@@ -7,4 +7,9 @@ const switchCell = (row, col) => {
     }
 }
 
-export default switchCell
+export const saveGame = (game) => {
+    return {
+        type: "SAVE_GAME",
+        game
+    }
+}
