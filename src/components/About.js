@@ -73,8 +73,9 @@ export default function About(props) {
           <br />
         </Typography>
         <Typography gutterBottom>
-          Click on cells on the grid to make patterns and then press 'Play' to
-          begin the simulation! If you like what you create, feel free to name it and save it!
+          Clicking on a cell on the grid will either bring it to life(blue) or kill it (grey).
+          Set an initial state to the grid and then press 'Play' to
+          begin the simulation! If you like what you create, feel free to name your initial state and save it!
         </Typography>
       </DialogContent>
       <DialogActions>
