@@ -9,11 +9,12 @@ import overpopulation from "../overpopulation.png";
 import reproduce from "../reproduce.png";
 import live_son from "../lives_on.png";
 
-export default function About() {
+export default function About(props) {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
+    props.history.push('/home')
   };
 
   useEffect(() => {
