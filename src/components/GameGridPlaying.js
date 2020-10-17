@@ -8,16 +8,6 @@ export class GameGridPlaying extends Component {
     constructor(props){
         super(props)
         this.grid = props.grid
-        this.neighbors = [
-            [0, 1],
-            [0, -1],
-            [1, -1],
-            [-1, 1],
-            [1, 1],
-            [-1, -1],
-            [1, 0],
-            [-1, 0]
-        ]
     }
 
 
@@ -51,10 +41,20 @@ export class GameGridPlaying extends Component {
     }
 
     getLiveNeighbors = (i , j) =>{
+        const neighbors = [
+            [0, 1],
+            [0, -1],
+            [1, -1],
+            [-1, 1],
+            [1, 1],
+            [-1, -1],
+            [1, 0],
+            [-1, 0]
+        ]
         let liveNeighbors = 0;
-        for(let k = 0; k < this.neighbors.length; k++){
-            const i2 = i + this.neighbors[k][0];
-            const j2 = j + this.neighbors[k][1];
+        for(let k = 0; k < neighbors.length; k++){
+            const i2 = i + neighbors[k][0];
+            const j2 = j + neighbors[k][1];
             if (i2 >= 0 && i2 < this.props.rows && j2 >=0 && j2 < this.props.cols){
                 if(this.grid[i2][j2]){
                     liveNeighbors++;
