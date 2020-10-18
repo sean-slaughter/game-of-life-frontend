@@ -18,19 +18,23 @@ export class GridContainer extends Component {
     return JSON.parse(JSON.stringify(grid));
   }
 
-  seedRandom() {}
+  stopGame = () =>{
+    this.setState({
+      running: false
+    })
+  }
 
   render() {
     return (
       <>
         <Grid container justify="center" alignItems="center">
           <Link to="/about">
-            <Button color="primary" size="large" variant="outlined">
+            <Button color="primary" size="large" variant="outlined" onClick={this.stopGame}>
               About
             </Button>
           </Link>
           <Link to="/games">
-            <Button color="primary" size="large" variant="outlined">
+            <Button color="primary" size="large" variant="outlined" onClick={this.stopGame}>
               Saved Games
             </Button>
           </Link>
@@ -43,12 +47,12 @@ export class GridContainer extends Component {
             {this.state.running ? "Stop" : "Play"}
           </Button>
           <Link to="/games/new">
-            <Button color="primary" size="large" variant="outlined">
+            <Button color="primary" size="large" variant="outlined" onClick={this.stopGame}>
               SAVE
             </Button>
           </Link>
           <Link to="/settings">
-            <Button color="primary" size="large" variant="outlined">
+            <Button color="primary" size="large" variant="outlined" onClick={this.stopGame}>
               SETTINGS
             </Button>
           </Link>
@@ -71,6 +75,7 @@ export class GridContainer extends Component {
       running: !this.state.running,
     });
   };
+
 }
 
 const mapDispatchToProps = (dispatch) => {

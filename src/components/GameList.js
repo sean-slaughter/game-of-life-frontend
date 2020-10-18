@@ -1,9 +1,8 @@
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button, Grid } from '@material-ui/core';
+import { Dialog, DialogActions, DialogTitle, Button, Grid } from '@material-ui/core';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchGames } from '../actions/gameActions'
 import Game from './Game';
 

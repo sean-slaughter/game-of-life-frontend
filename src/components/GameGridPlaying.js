@@ -38,7 +38,7 @@ export class GameGridPlaying extends Component {
     }
 
     componentWillUnmount(){
-        clearInterval(this.interval)
+        clearInterval(this.interval);
     }
 
     getLiveNeighbors = (i , j) =>{
