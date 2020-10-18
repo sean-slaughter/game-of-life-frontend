@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Cell from './Cell'
 import { connect } from 'react-redux'
-export class GameGrid extends Component {
+export class GameGridInitial extends Component {
 
     render() {
         let gridArr = [];
@@ -27,4 +27,4 @@ const mapStateToProps = state => {
         cellSize: state.settings.cellSize
     }
  }
-export default connect(mapStateToProps)(GameGrid)
+export default connect(mapStateToProps)(GameGridInitial)
