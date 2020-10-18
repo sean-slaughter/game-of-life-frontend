@@ -23,6 +23,7 @@ function App(props) {
             <Route path="/about" component={About} />
             <Route path="/games/new" component={SaveForm}/>
             <Route path="/settings" component={Settings}/>
+            <Route path="/games" component={GameList}/>
         </MuiThemeProvider>
       </div>
     </>
