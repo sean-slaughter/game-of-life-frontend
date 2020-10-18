@@ -7,6 +7,13 @@ export const switchCell = (row, col) => {
     }
 }
 
+export const changeSettings = (settings) => {
+    return {
+        type: 'CHANGE_SETTINGS',
+        settings
+    }
+}
+
 export const saveGame = (game, history) => {
     return (dispatch) => {
         fetch('http://localhost:3001/games', {

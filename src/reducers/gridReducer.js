@@ -1,8 +1,10 @@
 // initial state is 50x70 (possibly come back and edit this to add mobile support)
+const genGrid = (rows, cols) =>{
+  return Array(rows).fill().map(() => Array(cols).fill(false))
+}
+
 const initialState = {
-  initialGrid: Array(50)
-    .fill()
-    .map(() => Array(70).fill(false)),
+  initialGrid: genGrid(50, 70),
   settings: {
     rows: 50,
     cols: 70,
@@ -24,8 +26,16 @@ const gridReducer = (state = initialState, action) => {
         ...state,
         initialGrid: copyGridState,
       };
+      case 'CHANGE_SETTINGS':
+        debugger
+        return {
+          ...state,
+          initialGrid: genGrid(action.settings.rows, action.settings.cols),
+          settings: action.settings
+        };
     default:
       return state;
+
   }
 };
 

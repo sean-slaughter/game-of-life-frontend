@@ -1,61 +1,97 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@material-ui/core'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, makeStyles, Slider, Typography } from '@material-ui/core'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { connect } from 'react-redux'
+import { changeSettings } from '../actions/gameActions'
+
 
 
 function Settings(props) {
 
     const [open, setOpen] = useState(false)
     const [settings, setSettings] = useState(props.settings)
+  
 
     useEffect(() => {
         setOpen(true)
     },[])
-
 
     const handleClose = () => {
         setOpen(false);
         props.history.push('/home')
       };
 
+    const handleChange = (e, newValue) =>{
+       setSettings({
+           ...settings,
+           [e.target.id]: newValue,
+       })
+    }
+
     const saveSettings = () => {
-        
+        props.changeSettings(settings);
     }
 
     return (
+        <div >
+
          <Dialog
           onClose={handleClose}
           aria-labelledby="customized-dialog-title"
           open={open}
-        >
+          >
             <DialogTitle>
                 Edit the settings of your game grid:
             </DialogTitle>
             <DialogContent dividers>
-                Content
+                <Grid container spacing={2} >
+                    <Typography id="row-size" gutterBottom>
+                        Rows:   
+                    </Typography>
+                    <Grid item>
+                        <Slider aria-labelledby="row-size" max={100} min={10} step={5} value={settings.rows} id="rows"onChange={handleChange} style={{width: 300}}/>
+                    </Grid>
+                </Grid>
+                <Grid container spacing={2} >
+                    <Typography id="col-size" gutterBottom>
+                        Columns: 
+                    </Typography>
+                    <Grid item>
+                        <Slider aria-labelledby="col-size" max={100} min={10} step={5} value={settings.cols} id="cols"onChange={handleChange} style={{width: 300}}/>
+                    </Grid>
+                </Grid>
+                <Grid container  spacing={2} >
+                    <Typography id="cell-size" gutterBottom>
+                        Cell size:   
+                    </Typography>
+                    <Grid item>
+                        <Slider aria-labelledby="cell-size" max={35} min={5} step={5} value={settings.cellSize} id="cellSize"onChange={handleChange} style={{width: 300}}/>
+                    </Grid>
+                </Grid>
+                <Grid container spacing={2} >
+                    <Typography id="speed-val" gutterBottom>
+                       Speed:  
+                    </Typography>
+                    <Grid item>
+                        <Slider aria-labelledby="speed-val" max={200} min={10} step={20} value={settings.speed} id="speed" onChange={handleChange} style={{width: 300}}/>
+                    </Grid>
+                </Grid>
             </DialogContent>
             <DialogActions>
                 <Button color="primary" onClick={saveSettings}>Save Settings</Button> 
             </DialogActions>
         </Dialog>
+          </div>
     )
 }
 
 const mapStateToProps = state =>{
     return{
-        rows: state.settings.rows,
-        cols: state.settings.cols,
-        speed: state.settings.speed,
-        cellSize: state.settings.cellSize
+        settings: state.settings
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
 
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Settings)
+export default connect(mapStateToProps, { changeSettings } )(Settings)
