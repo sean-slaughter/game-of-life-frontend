@@ -14,8 +14,8 @@ export class GridContainer extends Component {
     };
   }
 
-  copyGrid() {
-    return JSON.parse(JSON.stringify(this.props.initialGrid));
+  copyGrid(grid) {
+    return JSON.parse(JSON.stringify(grid));
   }
 
   seedRandom() {}
@@ -57,7 +57,7 @@ export class GridContainer extends Component {
         <Grid container justify="center" alignItems="center">
           <div className="grid-container">
             {this.state.running ? (
-              <GameGridPlaying grid={this.copyGrid()} />
+              <GameGridPlaying grid={this.copyGrid(this.props.initialGrid)} />
             ) : (
               <GameGridInitial />
             )}
