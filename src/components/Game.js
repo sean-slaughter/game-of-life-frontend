@@ -11,7 +11,7 @@ function Game(props) {
 
     return (
         <Grid item style={{padding: 20}}>
-            <DialogContent >
+            <DialogContent dividers>
             <Paper style={{ padding: 20}} elevation={3}>
                 <Typography gutterBottom>
                     <b>{props.name}</b>

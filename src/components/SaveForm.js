@@ -49,7 +49,7 @@ function SaveForm(props) {
           open={open}
         >
           <DialogTitle>Save your game.</DialogTitle>
-          <DialogContent>
+          <DialogContent dividers>
             <DialogContentText>
               Like the inital grid state you've created? Save it for others to
               see, or come back to it later.

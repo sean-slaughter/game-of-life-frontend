@@ -25,8 +25,8 @@ function GameList(props) {
 
     return (
         <div>
-            <Dialog open={open} onClose={handleClose} >
-                <DialogTitle>
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle >
                     List of Saved Games
                 </DialogTitle>
                 <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
