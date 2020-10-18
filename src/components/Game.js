@@ -1,7 +1,14 @@
 import { Button, DialogContent, Grid, Paper, Typography } from '@material-ui/core'
 import React from 'react'
+import { loadGame } from '../actions/gameActions'
+import { connect } from 'react-redux';
 
 function Game(props) {
+
+    const handleClick = () => {
+        props.loadGame(props.id)
+    }
+
     return (
         <Grid item style={{padding: 20}}>
             <DialogContent >
@@ -12,12 +19,12 @@ function Game(props) {
                 <Typography>
                    Created by: {props.user}
                 </Typography>
-                <Button variant="contained" color="primary" >Load Game</Button>
+                <Button onClick={handleClick}variant="contained" color="primary" >Load Game</Button>
             </Paper>
             </DialogContent>
         </Grid>
     )
 }
 
-export default Game
+export default connect(null, { loadGame })(Game)
 

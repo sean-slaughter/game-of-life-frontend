@@ -12,7 +12,7 @@ function SaveForm(props) {
 
     const handleClose = () => {
       setOpen(false);
-      props.history.push('/home')
+      props.history.push('/')
     };
   
     useEffect(() => {

@@ -19,7 +19,7 @@ function Settings(props) {
 
     const handleClose = () => {
         setOpen(false);
-        props.history.push('/home')
+        props.history.push('/')
       };
 
     const handleChange = (e, newValue) =>{
@@ -31,7 +31,7 @@ function Settings(props) {
     
     const saveSettings = () => {
         props.changeSettings(settings);
-        props.history.push('/home')
+        props.history.push('/')
     }
 
 

@@ -20,7 +20,7 @@ function GameList(props) {
 
     const handleClose = () => {
         setOpen(false);
-        props.history.push('/home')
+        props.history.push('/')
       };
 
     return (
@@ -30,7 +30,7 @@ function GameList(props) {
                     List of Saved Games
                 </DialogTitle>
                 <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
-                    {props.games.map(game => <Game name={game.name} user={game.user}/>) }
+                    {props.games.map(game => <Game key={game.id} id={game.id} name={game.name} user={game.user} history={props.history}/>) }
                 </Grid>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">Back</Button>
