@@ -47,6 +47,11 @@ export class GridContainer extends Component {
               SAVE
             </Button>
           </Link>
+          <Link to="/settings">
+            <Button color="primary" size="large" variant="outlined">
+              SETTINGS
+            </Button>
+          </Link>
         </Grid>
 
         <Grid container justify="center" alignItems="center">
