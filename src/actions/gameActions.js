@@ -14,7 +14,7 @@ export const changeSettings = (settings) => {
     }
 }
 
-export const saveGame = (game, history) => {
+export const saveGame = (game) => {
     return (dispatch) => {
         fetch('http://localhost:3001/games', {
             method: 'POST',
@@ -25,7 +25,7 @@ export const saveGame = (game, history) => {
         body: JSON.stringify(game)
     })
         .then(resp => resp.json())
-        .then(game => console.log(game))
+        .then(newGame => console.log(newGame))
         
     }
 }

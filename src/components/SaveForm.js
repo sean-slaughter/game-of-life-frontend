@@ -24,10 +24,9 @@ function SaveForm(props) {
           game:{
               user: name,
               name: gridName,
-              rows: props.rows,
-              cols: props.cols,
-              cell_size: props.cellSize,
-              grid: copyGrid(props.initialGrid)
+              grid: props.initialGrid,
+              settings: props.settings
+
           } 
         }
         props.saveGame(game)
@@ -39,10 +38,6 @@ function SaveForm(props) {
 
     const handleNameChange = (e) =>{
         setName(e.target.value)
-    }
-
-    const copyGrid = (grid) => {
-      return JSON.parse(JSON.stringify(grid))
     }
  
     return (
@@ -97,9 +92,7 @@ function SaveForm(props) {
 const mapStateToProps = state =>{
     return{
         initialGrid: state.initialGrid,
-        cols: state.settings.cols,
-        rows: state.settings.rows,
-        cellSize: state.settings.cellSize
+        settings: state.settings
 
     }
 }
