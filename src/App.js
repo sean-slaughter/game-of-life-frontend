@@ -9,7 +9,7 @@ import SaveForm from "./components/SaveForm";
 import Settings from "./components/Settings";
 import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
   const theme = createMuiTheme({
     palette: {
       primary: cyan,

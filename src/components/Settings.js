@@ -8,7 +8,8 @@ import { connect } from 'react-redux'
 function Settings(props) {
 
     const [open, setOpen] = useState(false)
-    
+    const {rows, cols, cellSize, speed} = props.settings;
+
     useEffect(() => {
         setOpen(true)
     },[])

@@ -22,9 +22,9 @@ export class GameGrid extends Component {
 const mapStateToProps = state => {
     return {
         initialGrid: state.initialGrid,
-        rows: state.rows,
-        cols: state.cols,
-        cellSize: state.cellSize
+        rows: state.settings.rows,
+        cols: state.settings.cols,
+        cellSize: state.settings.cellSize
     }
  }
 export default connect(mapStateToProps)(GameGrid)
