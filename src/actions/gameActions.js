@@ -21,6 +21,13 @@ export const loadGames = (games) => {
     }
 }
 
+export const loadGame = (game_id) => {
+    return {
+        type: "LOAD_GAME",
+        game_id
+    }
+}
+
 export const fetchGames = () => {
     return (dispatch) => {
         //dispatch({type: "LOADING"})
