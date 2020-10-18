@@ -1,24 +1,40 @@
-import { Dialog, DialogContent, DialogTitle } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button, Grid } from '@material-ui/core';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { connect } from 'react/redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchGames } from '../actions/gameActions'
+import Game from './Game';
 
 
 function GameList(props) {
 
-    useEffect(props.fetchGames,[])
+    const [open, setOpen] = useState(false);
+
+
+    useEffect(() => {
+        setOpen(true);
+        props.fetchGames();
+    },[])
+
+    const handleClose = () => {
+        setOpen(false);
+        props.history.push('/home')
+      };
 
     return (
         <div>
-            <Dialog>
+            <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>
                     List of Saved Games
                 </DialogTitle>
-                <DialogContent>
-                    Games
-                </DialogContent>
+                <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
+                    {props.games.map(game => <Game name={game.name} user={game.user}/>) }
+                </Grid>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">Back</Button>
+                </DialogActions>
             </Dialog>
         </div>
     )

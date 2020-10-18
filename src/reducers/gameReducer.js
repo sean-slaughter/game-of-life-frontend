@@ -13,6 +13,7 @@ const initialState = {
     cellSize: 12,
     speed: 100,
   },
+  games: []
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -33,7 +34,10 @@ const gameReducer = (state = initialState, action) => {
         initialGrid: copyGridState,
       };
     case "LOAD_GAMES":
-      console.log("loading games") 
+      return {
+        ...state,
+        games: action.games
+      }
     case "CHANGE_SETTINGS":
       return {
         ...state,
