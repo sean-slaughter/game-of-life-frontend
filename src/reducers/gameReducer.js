@@ -22,10 +22,7 @@ const gameReducer = (state = initialState, action) => {
   };
 
   switch (action.type) {
-    case "LOADING":
-      console.log("loading");
-    case "SAVING":
-      console.log("saving");
+
     case "SWITCH_CELL":
       let copyGridState = copyGrid(state.initialGrid);
       copyGridState[action.row][action.col] = !copyGridState[action.row][action.col];
@@ -37,6 +34,19 @@ const gameReducer = (state = initialState, action) => {
       return {
         ...state,
         games: action.games
+      }
+    case "LOAD_GAME":
+      const game = state.games.find(game => game.id === action.game_id)
+      console.log(game)
+      return{
+        initialGrid: game.grid,
+        settings: {
+          rows: parseInt(game.settings.rows),
+          cols: parseInt(game.settings.cols),
+          speed: parseInt(game.settings.speed),
+          cellSize: parseInt(game.settings.cellSize)
+        },
+        games: [...state.games]
       }
     case "CHANGE_SETTINGS":
       return {
