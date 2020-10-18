@@ -3,7 +3,6 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import { Button, DialogActions, Grid, Typography } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import underpopulation from "../underpopulation.png";
 import overpopulation from "../overpopulation.png";
 import reproduce from "../reproduce.png";
@@ -79,11 +78,9 @@ export default function About(props) {
         </Typography>
       </DialogContent>
       <DialogActions>
-        <Link to="/">
             <Button color="primary" onClick={handleClose}>
               Close
             </Button>
-        </Link>
       </DialogActions>
     </Dialog>
   );

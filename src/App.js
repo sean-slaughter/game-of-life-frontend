@@ -7,7 +7,6 @@ import { Route } from "react-router-dom";
 import Home from "./components/Home";
 import SaveForm from "./components/SaveForm";
 import Settings from "./components/Settings";
-import { connect } from 'react-redux';
 
 function App(props) {
   const theme = createMuiTheme({
@@ -23,17 +22,13 @@ function App(props) {
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/games/new" component={SaveForm}/>
-            <Route path="/settings" render={() => <Settings settings={props.settings}/> }/>
+            <Route path="/settings" component={Settings}/>
         </MuiThemeProvider>
       </div>
     </>
   );
 }
 
-const mapStateToProps = state =>{
-  return {
-    settings: state.settings
-  }
-}
 
-export default connect(mapStateToProps)(App);
+
+export default App;
