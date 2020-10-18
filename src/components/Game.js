@@ -13,10 +13,10 @@ function Game(props) {
         <Grid item style={{padding: 20}}>
             <DialogContent >
             <Paper style={{ padding: 20}} elevation={3}>
-                <Typography>
-                   Name: {props.name}
+                <Typography gutterBottom>
+                    <b>{props.name}</b>
                 </Typography>
-                <Typography>
+                <Typography variant="overline" gutterBottom>
                    Created by: {props.user}
                 </Typography>
                 <Button onClick={handleClick}variant="contained" color="primary" >Load Game</Button>

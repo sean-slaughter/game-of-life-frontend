@@ -25,7 +25,7 @@ function GameList(props) {
 
     return (
         <div>
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog open={open} onClose={handleClose} >
                 <DialogTitle>
                     List of Saved Games
                 </DialogTitle>
