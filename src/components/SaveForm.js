@@ -30,6 +30,7 @@ function SaveForm(props) {
           } 
         }
         props.saveGame(game)
+        props.history.push('/home')
     }
 
     const handleGridChange = (e) =>{

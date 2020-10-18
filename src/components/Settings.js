@@ -52,7 +52,7 @@ function Settings(props) {
                         Rows:   
                     </Typography>
                     <Grid item>
-                        <Slider aria-labelledby="row-size" max={100} min={10} step={5} value={settings.rows} id="rows"onChange={handleChange} style={{width: 300}}/>
+                        <Slider aria-labelledby="row-size" max={80} min={10} step={5} value={settings.rows} id="rows"onChange={handleChange} style={{width: 300}}/>
                     </Grid>
                 </Grid>
                 <Grid container spacing={2} >
@@ -60,7 +60,7 @@ function Settings(props) {
                         Columns: 
                     </Typography>
                     <Grid item>
-                        <Slider aria-labelledby="col-size" max={100} min={10} step={5} value={settings.cols} id="cols"onChange={handleChange} style={{width: 300}}/>
+                        <Slider aria-labelledby="col-size" max={80} min={10} step={5} value={settings.cols} id="cols"onChange={handleChange} style={{width: 300}}/>
                     </Grid>
                 </Grid>
                 <Grid container  spacing={2} >
