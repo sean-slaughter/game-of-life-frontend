@@ -5,13 +5,13 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore, compose} from "redux";
 import * as serviceWorker from "./serviceWorker";
-import gridReducer from "./reducers/gridReducer";
+import gameReducer from "./reducers/gameReducer";
 import { BrowserRouter as Router } from "react-router-dom";
 import thunk from 'redux-thunk'
 
 
 const store = createStore(
-  gridReducer,
+  gameReducer,
   compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
