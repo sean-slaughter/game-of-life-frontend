@@ -74,7 +74,9 @@ export default function About(props) {
         <Typography gutterBottom>
           Clicking on a cell on the grid will either bring it to life(blue) or kill it (grey).
           Set an initial state to the grid and then press 'Play' to
-          begin the simulation! If you like what you create, feel free to name your initial state and save it!
+          begin the simulation! You can also customize your grid settings such as speed (delay between generations),
+          number of columns, number of rows, and cell size. 
+          If you like what you create, feel free to name your initial state and save it!
         </Typography>
       </DialogContent>
       <DialogActions>
