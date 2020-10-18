@@ -28,10 +28,12 @@ function Settings(props) {
            [e.target.id]: newValue,
        })
     }
-
+    
     const saveSettings = () => {
         props.changeSettings(settings);
+        props.history.push('/home')
     }
+
 
     return (
         <div >
@@ -71,12 +73,16 @@ function Settings(props) {
                 </Grid>
                 <Grid container spacing={2} >
                     <Typography id="speed-val" gutterBottom>
-                       Speed:  
+                       Speed
                     </Typography>
                     <Grid item>
-                        <Slider aria-labelledby="speed-val" max={200} min={10} step={20} value={settings.speed} id="speed" onChange={handleChange} style={{width: 300}}/>
+                        <Slider aria-labelledby="speed-val" max={500} min={20} step={20} value={settings.speed} id="speed" onChange={handleChange} style={{width: 300}}/>
                     </Grid>
                 </Grid>
+                <Typography variant="caption">
+                    Note that for speed you are setting the delay between generations<br/>
+                    (Less = faster/more = slower)
+                </Typography>
             </DialogContent>
             <DialogActions>
                 <Button color="primary" onClick={saveSettings}>Save Settings</Button> 
