@@ -5,97 +5,103 @@ import Cell from "../components/Cell";
 //import { useState, useEffect } from "react";
 
 export class GameGridPlaying extends Component {
-    
-    constructor(props){
-        super(props)
-        this.grid = props.grid
+  constructor(props) {
+    super(props);
+    this.grid = props.grid;
+  }
+
+  copyGrid() {
+    return JSON.parse(JSON.stringify(this.grid));
+  }
+
+  render() {
+    console.log("render");
+    let gridArr = [];
+    for (let i = 0; i < this.props.rows; i++) {
+      for (let j = 0; j < this.props.cols; j++) {
+        let cellState = this.grid[i][j] ? "cell alive" : "cell dead";
+        let id = i + "_" + j;
+        gridArr.push(
+          <Cell
+            cellState={cellState}
+            key={id}
+            row={i}
+            col={j}
+            cellSize={this.props.cellSize}
+          />
+        );
+      }
     }
+    return (
+      <div
+        className="grid"
+        style={{ width: this.props.cols * (this.props.cellSize + 1) }}
+      >
+        {gridArr}
+      </div>
+    );
+  }
 
+  componentDidMount() {
+    this.interval = setInterval(this.play.bind(this), this.props.speed);
+  }
 
-    copyGrid(){
-        return JSON.parse(JSON.stringify(this.grid))
-    }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
-    render() {
-        console.log("render")
-        let gridArr = [];
-        for(let i = 0; i < this.props.rows; i++){
-           for(let j = 0; j < this.props.cols; j++){
-               let cellState = this.grid[i][j] ? "cell alive" : "cell dead"
-               let id = i + "_" + j;  
-               gridArr.push(<Cell cellState={cellState} key={id} row={i} col={j} cellSize={this.props.cellSize}/>)
-           }
+  getLiveNeighbors = (i, j) => {
+    const neighbors = [
+      [0, 1],
+      [0, -1],
+      [1, -1],
+      [-1, 1],
+      [1, 1],
+      [-1, -1],
+      [1, 0],
+      [-1, 0],
+    ];
+    let liveNeighbors = 0;
+    for (let k = 0; k < neighbors.length; k++) {
+      const i2 = i + neighbors[k][0];
+      const j2 = j + neighbors[k][1];
+      if (i2 >= 0 && i2 < this.props.rows && j2 >= 0 && j2 < this.props.cols) {
+        if (this.grid[i2][j2]) {
+          liveNeighbors++;
         }
-        return (
-            <div className="grid" style={{width: (this.props.cols * (this.props.cellSize + 1))}}>
-                {gridArr}
-            </div>
-        )
+      }
     }
+    return liveNeighbors;
+  };
 
-    componentDidMount(){
-       this.interval = setInterval(this.play.bind(this), this.props.speed)
-    }
-
-    componentWillUnmount(){
-        clearInterval(this.interval);
-    }
-
-    getLiveNeighbors = (i , j) =>{
-        const neighbors = [
-            [0, 1],
-            [0, -1],
-            [1, -1],
-            [-1, 1],
-            [1, 1],
-            [-1, -1],
-            [1, 0],
-            [-1, 0]
-        ]
-        let liveNeighbors = 0;
-        for(let k = 0; k < neighbors.length; k++){
-            const i2 = i + neighbors[k][0];
-            const j2 = j + neighbors[k][1];
-            if (i2 >= 0 && i2 < this.props.rows && j2 >=0 && j2 < this.props.cols){
-                if(this.grid[i2][j2]){
-                    liveNeighbors++;
-                }
-            }
+  play() {
+    let copyGrid = this.copyGrid(this.grid);
+    for (let i = 0; i < this.props.rows; i++) {
+      for (let j = 0; j < this.props.cols; j++) {
+        const liveNeighbors = this.getLiveNeighbors(i, j);
+        if (liveNeighbors < 2 || liveNeighbors > 3) {
+          if (this.grid[i][j]) {
+            copyGrid[i][j] = !copyGrid[i][j];
+          }
+        } else if (!this.grid[i][j] && liveNeighbors === 3) {
+          copyGrid[i][j] = !copyGrid[i][j];
         }
-        return liveNeighbors
+      }
     }
-
-    play(){
-        let copyGrid = this.copyGrid(this.grid)
-        for(let i = 0; i < this.props.rows; i++){
-            for(let j = 0; j < this.props.cols; j++){
-                const liveNeighbors = this.getLiveNeighbors(i, j);
-                if(liveNeighbors < 2 || liveNeighbors > 3){
-                    if(this.grid[i][j]){
-                        copyGrid[i][j] = !copyGrid[i][j]
-                    }
-                }
-                else if (!this.grid[i][j] && liveNeighbors === 3){
-                    copyGrid[i][j] = !copyGrid[i][j]
-                }
-            }
-        }
-        this.grid = copyGrid;
-        this.forceUpdate();
-    }
-
-
+    this.grid = copyGrid;
+    this.forceUpdate();
+  }
 }
-const mapStateToProps = state => {
-    return {
-        rows: state.settings.rows,
-        cols: state.settings.cols,
-        cellSize: state.settings.cellSize,
-        speed: state.settings.speed
-    }
- }
+const mapStateToProps = (state) => {
+  return {
+    rows: state.settings.rows,
+    cols: state.settings.cols,
+    cellSize: state.settings.cellSize,
+    speed: state.settings.speed,
+  };
+};
 
-export default connect(mapStateToProps)(GameGridPlaying)
+export default connect(mapStateToProps)(GameGridPlaying);
 
 // function GameGridPlaying(props) {
 
@@ -172,7 +178,6 @@ export default connect(mapStateToProps)(GameGridPlaying)
 //   <div className="grid" style={{width: (props.cols * (props.cellSize + 1))}}>{GridArray()}</div>
 //   );
 // }
-
 
 // export class GameGridPlaying extends Component {
 
@@ -257,4 +262,3 @@ export default connect(mapStateToProps)(GameGridPlaying)
 //     }
 
 // }
-

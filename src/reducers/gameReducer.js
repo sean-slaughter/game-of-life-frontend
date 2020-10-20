@@ -1,9 +1,8 @@
-// initial state is 50x70 (possibly come back and edit this to add mobile support)
-const genGrid = (rows, cols) => {
+function genGrid(rows, cols) {
   return Array(rows)
     .fill()
     .map(() => Array(cols).fill(false));
-};
+}
 
 const initialState = {
   initialGrid: genGrid(50, 70),

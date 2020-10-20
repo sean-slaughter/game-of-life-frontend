@@ -13,12 +13,12 @@ export default function About(props) {
 
   const handleClose = () => {
     setOpen(false);
-    props.history.push('/')
+    props.history.push("/");
   };
 
   useEffect(() => {
     setOpen(true);
-  },[]);
+  }, []);
 
   return (
     <Dialog
@@ -64,7 +64,8 @@ export default function About(props) {
             <img alt="example" className="about" src={live_son} />
           </Grid>
           <br />
-          4. Any dead cell with three live neighbors becomes alive, as if by reproduction.
+          4. Any dead cell with three live neighbors becomes alive, as if by
+          reproduction.
           <br />
           <Grid container justify="center">
             <img alt="example" className="about" src={reproduce} />
@@ -72,17 +73,18 @@ export default function About(props) {
           <br />
         </Typography>
         <Typography gutterBottom>
-          Clicking on a cell on the grid will either bring it to life(blue) or kill it (grey).
-          Set an initial state to the grid and then press 'Play' to
-          begin the simulation! You can also customize your grid settings such as speed (delay between generations),
-          number of columns, number of rows, and cell size. 
-          If you like what you create, feel free to name your initial state and save it!
+          Clicking on a cell on the grid will either bring it to life(blue) or
+          kill it (grey). Set an initial state to the grid and then press 'Play'
+          to begin the simulation! You can also customize your grid settings
+          such as speed (delay between generations), number of columns, number
+          of rows, and cell size. If you like what you create, feel free to name
+          your initial state and save it!
         </Typography>
       </DialogContent>
       <DialogActions>
-            <Button color="primary" onClick={handleClose}>
-              Close
-            </Button>
+        <Button color="primary" onClick={handleClose}>
+          Close
+        </Button>
       </DialogActions>
     </Dialog>
   );

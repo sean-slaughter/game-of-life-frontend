@@ -3,7 +3,7 @@ import Cell from './Cell'
 import { connect } from 'react-redux'
 export class GameGridInitial extends Component {
 
-    render() {
+    render = () => {
         let gridArr = [];
         for(let i = 0; i < this.props.rows; i++){
            for(let j = 0; j < this.props.cols; j++){
