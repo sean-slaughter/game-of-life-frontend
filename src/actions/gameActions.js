@@ -34,7 +34,9 @@ export const fetchGames = () => {
         console.log("inside fetch games")
         fetch('http://localhost:3001/games')
         .then(resp => resp.json())
-        .then(games => dispatch({type: "LOAD_GAMES", games}))
+        .then(games => {
+            dispatch({type: "LOAD_GAMES", games})
+            })
     }
 
 }
