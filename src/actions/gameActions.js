@@ -44,7 +44,7 @@ export const fetchGames = () => {
 export const saveGame = (game) => {
     return (dispatch) => {
         //dispatch({type: "SAVING"})
-        fetch('http://localhost:3001/games', {
+        fetch('http://st-game-of-life-api-herokuapp.com/games', {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
