@@ -1,12 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import logo from '../conway_logo.png'
 
-export class Logo extends Component {
-    render() {
-        return (
-            <img className="logo" src={logo} alt=""/>
-        )
-    }
+export default function Logo(){
+    return (
+        <img className ="logo" src={logo}/>
+    )
 }
 
-export default Logo
+// export class Logo extends Component {
+//     render() {
+//         return (
+//             <img className="logo" src={logo} alt=""/>
+//         )
+//     }
+// }
+
