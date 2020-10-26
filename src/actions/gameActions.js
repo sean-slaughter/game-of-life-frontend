@@ -32,7 +32,7 @@ export const fetchGames = () => {
     return (dispatch) => {
         //dispatch({type: "LOADING"})
         console.log("inside fetch games")
-        fetch('http://st-game-of-life-api.herokuapp.com/games')
+        fetch('https://st-game-of-life-api.herokuapp.com/games')
         .then(resp => resp.json())
         .then(games => {
             dispatch({type: "LOAD_GAMES", games})
@@ -44,7 +44,7 @@ export const fetchGames = () => {
 export const saveGame = (game) => {
     return (dispatch) => {
         //dispatch({type: "SAVING"})
-        fetch('http://st-game-of-life-api.herokuapp.com/games', {
+        fetch('https://st-game-of-life-api.herokuapp.com/games', {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
