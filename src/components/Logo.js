@@ -7,11 +7,4 @@ export default function Logo(){
     )
 }
 
-// export class Logo extends Component {
-//     render() {
-//         return (
-//             <img className="logo" src={logo} alt=""/>
-//         )
-//     }
-// }
 
